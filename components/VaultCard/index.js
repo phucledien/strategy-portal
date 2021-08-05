@@ -117,8 +117,9 @@ export default function VaultCard({ vault }) {
       <div class="card-body">
         <h2 class="card-title">{vault.name}</h2>
         <div>
-          <p>
-            Your LP Tokens = <span class="font-semibold">{lpBalance} LP</span>
+          <p class="truncate">
+            Your LP Tokens ={" "}
+            <span class="font-semibold truncate">{lpBalance} LP</span>
           </p>
         </div>
 
@@ -146,7 +147,7 @@ export default function VaultCard({ vault }) {
                   onChange={switchToDeposit}
                   class="checkbox"
                 />
-                <span class="label-text">Deposit +</span>
+                <span class="label-text">Deposit</span>
               </label>
               <label class="cursor-pointer label space-x-2">
                 <input
@@ -155,7 +156,7 @@ export default function VaultCard({ vault }) {
                   onChange={switchToWithdraw}
                   class="checkbox"
                 />
-                <p>Withdraw -</p>
+                <span class="label-text">Withdraw</span>
               </label>
             </div>
 
@@ -181,12 +182,12 @@ export default function VaultCard({ vault }) {
                   type="text"
                   value={ammount}
                   onChange={(e) => {
-                    setAmmount(e.value);
+                    setAmmount(e.target.value);
                   }}
                   class="input input-bordered flex-1"
                 />
                 <button onClick={onMaxClick} class="btn flex-0.5">
-                  MAX
+                  <p class="text-xs sm:text-md">MAX</p>
                 </button>
               </div>
             </div>

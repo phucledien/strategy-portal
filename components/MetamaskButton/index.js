@@ -7,17 +7,18 @@ export default function MetaMaskButton() {
   const { account, connect } = useWallet();
 
   return !account ? (
-    <button class="btn btn-primary" onClick={() => connect("injected")}>
+    <button
+      class="btn-sm sm:btn-md btn btn-primary"
+      onClick={() => connect("injected")}
+    >
       <div class="flex space-x-2">
-        <div class="w-6 h-6">
+        <div class="hidden sm:block w-6 h-6">
           <Image src={metamask} />
         </div>
         <p>Connect to MetaMask</p>
       </div>
     </button>
   ) : (
-    <div class="">
-      <p>{formatAddress(account)}</p>
-    </div>
+    <p>{formatAddress(account)}</p>
   );
 }
