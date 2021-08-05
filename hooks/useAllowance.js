@@ -9,17 +9,17 @@ const useAllowance = (lpAddress, vaultAddress) => {
 
   const lpContract = getContract(web3, lpAddress);
   const fetchAllowance = useCallback(async () => {
-    const allowance = await getAllowance(lpContract, account, vaultAddress);
-    setAllowance(new BigNumber(allowance));
-  }, [account, vaultAddress, lpContract]);
+    const newAllowance = await getAllowance(lpContract, account, vaultAddress);
+    setAllowance(new BigNumber(newAllowance));
+  }, [account, vaultAddress, lpContract, web3]);
 
   useEffect(() => {
     if (account && vaultAddress && lpContract) {
       fetchAllowance();
     }
-    // let refreshInterval = setInterval(fetchAllowance, 10000);
-    // return () => clearInterval(refreshInterval);
-  }, [account, vaultAddress, lpContract, fetchAllowance]);
+    let refreshInterval = setInterval(fetchAllowance, 10000);
+    return () => clearInterval(refreshInterval);
+  }, [account]);
 
   return allowance;
 };
