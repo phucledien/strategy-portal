@@ -19,7 +19,7 @@ const useAllowance = (lpAddress, vaultAddress) => {
     }
     let refreshInterval = setInterval(fetchAllowance, 10000);
     return () => clearInterval(refreshInterval);
-  }, [account]);
+  }, [account, web3]);
 
   return allowance;
 };
