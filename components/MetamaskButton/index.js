@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Image from "next/image";
 import { useWallet } from "use-wallet";
 import formatAddress from "/utils/formatAddress";
@@ -5,6 +6,10 @@ import metamask from "/public/ico_metamask.png";
 
 export default function MetaMaskButton() {
   const { account, connect } = useWallet();
+
+  useEffect(() => {
+    connect("injected");
+  }, []);
 
   return !account ? (
     <button

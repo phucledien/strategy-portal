@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import { UseWalletProvider } from "use-wallet";
 import MetaMaskButton from "/components/MetamaskButton";
@@ -18,12 +17,7 @@ export default function Home() {
     },
   ];
   return (
-    <UseWalletProvider
-      chainId={250}
-      connectors={{
-        walletconnect: { rpcUrl: "https://rpcapi.fantom.network" },
-      }}
-    >
+    <UseWalletProvider chainId={250}>
       <div class="container mx-auto px-2">
         <div class="flex mt-5 justify-between">
           <Link href="/">
