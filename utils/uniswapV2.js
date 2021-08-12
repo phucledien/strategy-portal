@@ -10,6 +10,7 @@ export const getTokenPrice = async (web3, address) => {
 
   const wftmAddress = "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83";
   const usdcAddress = "0x04068da6c83afcfa0e13ba15a6696662335d5b75";
+  const route =  address !== wftmAddress ? [address, wftmAddress, usdcAddress] : [wftmAddress, usdcAddress];
 
   const token = await contract.methods
     .getAmountsOut("1000000000000000000", [address, wftmAddress, usdcAddress])
