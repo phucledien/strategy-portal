@@ -8,12 +8,16 @@ import useApprove from "/hooks/useApprove";
 import useBalance from "/hooks/useBalance";
 import { getDisplayBalance, getFullDisplayBalance } from "/utils/formatBalance";
 import VaultABI from "/constants/abi/Vault.json";
+import { getBalance, getTotalSupply } from "/utils/erc20";
+import { getTokenPrice } from "../../utils/uniswapV2";
 
 export default function VaultCard({ vault }) {
   const [requestedApproval, setRequestedApproval] = useState(false);
   const [requestedDeposit, setRequestedDeposit] = useState(false);
   const [requestedWithdraw, setRequestedWithdraw] = useState(false);
-  const [lpBalance, setLpBalance] = useState("0");
+  const [lpBalance, setLpBalance] = useState(BigNumber("0"));
+  const displayLpBalance = getDisplayBalance(lpBalance);
+  const [displayLpPrice, setDisplayLPPrice] = useState("0");
   const [isDeposit, setIsDeposit] = useState(true);
   const [ammount, setAmmount] = useState("0");
 
@@ -32,6 +36,10 @@ export default function VaultCard({ vault }) {
     fetchLPBalance();
   }, [shareBalance]);
 
+  useEffect(() => {
+    fetchLPPrice();
+  }, [lpBalance]);
+
   const fetchLPBalance = async () => {
     const web3 = new Web3(ethereum);
     const contract = new web3.eth.Contract(VaultABI.abi, vault.address);
@@ -44,10 +52,29 @@ export default function VaultCard({ vault }) {
         .multipliedBy(shareBalance)
         .dividedBy(new BigNumber(10).pow(18));
 
-      setLpBalance(getDisplayBalance(balance));
+      setLpBalance(balance);
     } catch (e) {
       console.log(e);
     }
+  };
+
+  const fetchLPPrice = async () => {
+    if (lpBalance.eq("0")) {
+      return;
+    }
+    const web3 = new Web3(ethereum);
+    const tokenAAmount = await getBalance(web3, vault.tokenA, vault.lpAddress); // web3, tokenAAddress, ownerAddress
+    const totalSupply = await getTotalSupply(web3, vault.lpAddress); // web3, token address
+    const portionLP = lpBalance.div(new BigNumber(totalSupply));
+    const totalTokenAValue = portionLP
+      .times(new BigNumber(tokenAAmount))
+      .times(new BigNumber(2))
+      .div(new BigNumber(10).pow(18));
+
+    const tokenPrice = await getTokenPrice(web3, vault.tokenA);
+    const totalTokenAPrice = tokenPrice.times(totalTokenAValue).toFixed(2);
+
+    setDisplayLPPrice(totalTokenAPrice);
   };
 
   const handleApprove = useCallback(async () => {
@@ -72,6 +99,7 @@ export default function VaultCard({ vault }) {
 
       await contract.methods.deposit(depositAmmount).send({ from: account });
 
+      setAmmount("0");
       setRequestedDeposit(false);
     } catch (e) {
       console.log(e);
@@ -84,11 +112,12 @@ export default function VaultCard({ vault }) {
     const contract = new web3.eth.Contract(VaultABI.abi, vault.address);
 
     try {
-      setRequestedDeposit(true);
+      setRequestedWithdraw(true);
 
       await contract.methods.withdraw(withdrawAmmount).send({ from: account });
 
-      setRequestedDeposit(false);
+      setAmmount("0");
+      setRequestedWithdraw(false);
     } catch (e) {
       console.log(e);
     }
@@ -119,13 +148,14 @@ export default function VaultCard({ vault }) {
         <div>
           <p class="truncate">
             Your LP Tokens ={" "}
-            <span class="font-semibold truncate">{lpBalance} LP</span>
+            <span class="font-semibold truncate">{displayLpBalance} LP</span>
           </p>
         </div>
 
         <div class="mt-2">
           <p>
-            LP Tokens in USD = <span class="font-semibold">Comming soon!</span>
+            LP Tokens in USD ={" "}
+            <span class="font-semibold">${displayLpPrice}</span>
           </p>
         </div>
 

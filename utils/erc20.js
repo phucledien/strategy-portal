@@ -26,6 +26,16 @@ export const getBalance = async (web3, tokenAddress, userAddress) => {
   }
 };
 
+export const getTotalSupply = async (web3, tokenAddress) => {
+  const lpContract = getContract(web3, tokenAddress);
+  try {
+    const balance = await lpContract.methods.totalSupply().call();
+    return balance;
+  } catch (e) {
+    return "0";
+  }
+};
+
 export const approve = async (contract, spender, account) => {
   return contract.methods
     .approve(spender, ethers.constants.MaxUint256)
