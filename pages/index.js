@@ -33,6 +33,13 @@ export default function Home() {
       tokenA: "0xf16e81dce15b08f326220742020379b855b87df9",
       tokenB: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
     },
+    {
+      name: "FTM-SHADE Spooky Pod",
+      address: "0x197152e78012C657266d076aA8938Fd47c24c176",
+      lpAddress: "0x20aa395f3bcc4dc44a94215d129650533b3da0b3",
+      tokenA: "0x3A3841f5fa9f2c283EA567d5Aeea3Af022dD2262",
+      tokenB: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+    },
   ];
 
   return (
