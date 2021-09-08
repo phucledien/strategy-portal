@@ -6,14 +6,14 @@ import VaultCard from "/components/VaultCard";
 export default function Home() {
   let vaults = [
     {
-      name: "FTM-TSHARE Tomb Pod",
+      name: "FTM-TSHARE Tomb Pod (💀💀💀)",
       address: "0x06e1866a83be1778dbc5c9c89adb20bfe27cbb18",
       lpAddress: "0x4733bc45ef91cf7ccecaeedb794727075fb209f2",
       tokenA: "0x4cdf39285d7ca8eb3f090fda0c069ba5f4145b37",
       tokenB: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
     },
     {
-      name: "FTM-TOMB Tomb Pod",
+      name: "FTM-TOMB Tomb Pod (💀💀💀)",
       address: "0x274c7eC8238dC554c4300807ca49f140a16B42c6",
       lpAddress: "0x2A651563C9d3Af67aE0388a5c8F89b867038089e",
       tokenA: "0x6c021ae822bea943b2e66552bde1d2696a53fbb7",
