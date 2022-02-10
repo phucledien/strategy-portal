@@ -39,6 +39,13 @@ export default function Home() {
       tokenA: "0x6c021ae822bea943b2e66552bde1d2696a53fbb7",
       tokenB: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
     },
+    {
+      name: "USDC-DAI Spirit Pod",
+      address: "0x23BCC475C2f0D240Bf1abbd8F7DeA4321EbA3BC0",
+      lpAddress: "0x9606d683d03f012dda296ef0ae9261207c4a5847",
+      tokenA: "0x04068da6c83afcfa0e13ba15a6696662335d5b75",
+      tokenB: "0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e",
+    },
   ];
 
   return (
