@@ -46,6 +46,13 @@ export default function Home() {
       tokenA: "0x04068da6c83afcfa0e13ba15a6696662335d5b75",
       tokenB: "0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e",
     },
+    {
+      name: "PFTM-FTM Ripae Pod",
+      address: "0xAe403C046887bcB9bCc7425b96Cb3C7543C5455a",
+      lpAddress: "0x9ce8e9b090e8af873e793e0b78c484076f8ceece",
+      tokenA: "0x112df7e3b4b7ab424f07319d4e92f41e6608c48b",
+      tokenB: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+    },
   ];
 
   return (
