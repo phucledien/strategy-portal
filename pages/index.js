@@ -34,7 +34,7 @@ export default function Home() {
     // },
     {
       name: "FTM-TOMB Tomb Pod",
-      address: "0x270e4c4a3952e6d231db85db1930bd95b4fc50e8",
+      address: "0xe8b02e2ea7470578e6449e56db2c5ffba2d3832e",
       lpAddress: "0x2A651563C9d3Af67aE0388a5c8F89b867038089e",
       tokenA: "0x6c021ae822bea943b2e66552bde1d2696a53fbb7",
       tokenB: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
