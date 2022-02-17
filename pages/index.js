@@ -6,33 +6,6 @@ import MasonryVaultCard from "/components/MasonryVaultCard";
 
 export default function Home() {
   let vaults = [
-    // {
-    //   name: "FTM-BOO Spooky Pod",
-    //   address: "0x0f71013b113cF05D8aE5e5A551e28464deCE3097",
-    //   lpAddress: "0xec7178f4c41f346b2721907f5cf7628e388a7a58",
-    //   tokenA: "0x841fad6eae12c286d1fd18d1d525dffa75c7effe",
-    //   tokenB: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
-    // }, {
-    //   name: "FTM-ICE Spooky Pod",
-    //   address: "0xA657D27b1695dfb62DB526FB07f1c57D47721c43",
-    //   lpAddress: "0x623ee4a7f290d11c11315994db70fb148b13021d",
-    //   tokenA: "0xf16e81dce15b08f326220742020379b855b87df9",
-    //   tokenB: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
-    // },
-    // {
-    //   name: "FTM-SHADE Spooky Pod",
-    //   address: "0x197152e78012C657266d076aA8938Fd47c24c176",
-    //   lpAddress: "0x20aa395f3bcc4dc44a94215d129650533b3da0b3",
-    //   tokenA: "0x3A3841f5fa9f2c283EA567d5Aeea3Af022dD2262",
-    //   tokenB: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
-    // },
-    // {
-    //   name: "FTM-TSHARE Tomb Pod (💀💀💀)",
-    //   address: "0x06e1866a83be1778dbc5c9c89adb20bfe27cbb18",
-    //   lpAddress: "0x4733bc45ef91cf7ccecaeedb794727075fb209f2",
-    //   tokenA: "0x4cdf39285d7ca8eb3f090fda0c069ba5f4145b37",
-    //   tokenB: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
-    // },
     {
       name: "FTM-TOMB Tomb Pod",
       address: "0xe8b02e2ea7470578e6449e56db2c5ffba2d3832e",
@@ -62,6 +35,20 @@ export default function Home() {
       address: "0x4774417c2220bff0fe2caa3fb859dcf4b07d1181",
       tokenName: "Tshare",
       tokenAddress: "0x4cdf39285d7ca8eb3f090fda0c069ba5f4145b37",
+      type: "masonry",
+    },
+    {
+      name: "2share Masonry Pod",
+      address: "0x4bf135993b7E558112743bF30d2eF54C19c43055",
+      tokenName: "2share",
+      tokenAddress: "0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca",
+      type: "masonry",
+    },
+    {
+      name: "3share Masonry Pod",
+      address: "0x7074D8f6B7FD6b5D253466D1f36dcf606C28942D",
+      tokenName: "3share",
+      tokenAddress: "0x6437adac543583c4b31bf0323a0870430f5cc2e7",
       type: "masonry",
     },
   ];
