@@ -2,6 +2,7 @@ import Link from "next/link";
 import { UseWalletProvider } from "use-wallet";
 import MetaMaskButton from "/components/MetamaskButton";
 import VaultCard from "/components/VaultCard";
+import MasonryVaultCard from "/components/MasonryVaultCard";
 
 export default function Home() {
   let vaults = [
@@ -38,6 +39,7 @@ export default function Home() {
       lpAddress: "0x2A651563C9d3Af67aE0388a5c8F89b867038089e",
       tokenA: "0x6c021ae822bea943b2e66552bde1d2696a53fbb7",
       tokenB: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      type: "lpStake",
     },
     {
       name: "USDC-DAI Spirit Pod",
@@ -45,6 +47,7 @@ export default function Home() {
       lpAddress: "0x9606d683d03f012dda296ef0ae9261207c4a5847",
       tokenA: "0x04068da6c83afcfa0e13ba15a6696662335d5b75",
       tokenB: "0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e",
+      type: "lpStake",
     },
     {
       name: "PFTM-FTM Ripae Pod",
@@ -52,6 +55,14 @@ export default function Home() {
       lpAddress: "0x9ce8e9b090e8af873e793e0b78c484076f8ceece",
       tokenA: "0x112df7e3b4b7ab424f07319d4e92f41e6608c48b",
       tokenB: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      type: "lpStake",
+    },
+    {
+      name: "Tshare Masonry Pod",
+      address: "0x4774417c2220bff0fe2caa3fb859dcf4b07d1181",
+      tokenName: "Tshare",
+      tokenAddress: "0x4cdf39285d7ca8eb3f090fda0c069ba5f4145b37",
+      type: "masonry",
     },
   ];
 
@@ -66,9 +77,13 @@ export default function Home() {
         </div>
         <div class="container mt-16 px-8">
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {vaults.map((vault) => (
-              <VaultCard key={vault.name} vault={vault} />
-            ))}
+            {vaults.map((vault) => {
+              if (vault.type == "masonry") {
+                return <MasonryVaultCard key={vault.name} vault={vault} />;
+              } else {
+                return <VaultCard key={vault.name} vault={vault} />;
+              }
+            })}
           </div>
         </div>
       </div>
