@@ -7,6 +7,14 @@ import MasonryVaultCard from "/components/MasonryVaultCard";
 export default function Home() {
   let vaults = [
     {
+      name: "FTM-BShare Based Pod",
+      address: "0x0328c4cf47e101a972bb73f07d69efe0cd27bf0a",
+      lpAddress: "0x6f607443dc307dcbe570d0ecff79d65838630b56",
+      tokenA: "0x49c290ff692149a4e16611c694fded42c954ab7a",
+      tokenB: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      type: "lpStake",
+    },
+    {
       name: "BASED-TOMB Based Pod",
       address: "0xe01c0db7c947328773ace0544d1db91b11df49a5",
       lpAddress: "0xab2ddcbb346327bbdf97120b0dd5ee172a9c8f9e",
