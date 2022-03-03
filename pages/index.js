@@ -7,6 +7,14 @@ import MasonryVaultCard from "/components/MasonryVaultCard";
 export default function Home() {
   let vaults = [
     {
+      name: "Boo-XBoo Solidex Pod",
+      address: "0x98fc117a6aacdbdc1046c458ae3261881bd5ea24",
+      lpAddress: "0x5804f6c40f44cf7593f73cf3aa16f7037213a623",
+      tokenA: "0x841fad6eae12c286d1fd18d1d525dffa75c7effe",
+      tokenB: "0xa48d959ae2e88f1daa7d5f611e01908106de7598",
+      type: "lpStake",
+    },
+    {
       name: "FTM-BShare Based Pod",
       address: "0x0328c4cf47e101a972bb73f07d69efe0cd27bf0a",
       lpAddress: "0x6f607443dc307dcbe570d0ecff79d65838630b56",
